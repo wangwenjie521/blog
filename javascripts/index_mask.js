@@ -72,8 +72,9 @@ define(function(require, exports, module) {
 						}else{
 							temp_state="";
 						}
-						var temp_tr='<tr class="'+temp_last+'"><td class="row1">'+dataLists[i].time+'</td>'+
-							'<td class="status '+temp_state+'">&nbsp;</td><td>'+dataLists[i].context+'</td></tr>';
+						var temp_val=len-1-i;
+						var temp_tr='<tr class="'+temp_last+'"><td class="row1">'+dataLists[temp_val].time+'</td>'+
+							'<td class="status '+temp_state+'">&nbsp;</td><td>'+dataLists[temp_val].context+'</td></tr>';
 						$("#queryResult").append(temp_tr);
 						$("#queryResult tr:eq("+i+")").delay(100).fadeIn();
 					}
