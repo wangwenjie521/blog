@@ -1,10 +1,11 @@
 define(function(require, exports, module) {
     var tip_right,tip_bottom;
-    var tipback=$('#tipback');
     var wid=$(window);
     var w_wid=wid.width();
     var w_hei=wid.height();
+    $('body').append('<div id="tipback" class="btn_top" title="返回顶部"><a class="icon_top_n" href="javascript:;"></a></div>');
     getTip_rb(w_wid,w_hei);
+    var tipback=$('#tipback');
     tipback.css({
       "right":  tip_right,
       "bottom":tip_bottom

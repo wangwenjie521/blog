@@ -1,8 +1,9 @@
 /*kuaidi_css add by wwj 2014-10-10*/
 /*布局*/
-.w-sec{background:url(../images/login-blurry-bg.jpg) no-repeat center top #0099ff}
-.w-wrap{background-color: #fff;border: 1px solid #ddd;border-top:0;border-bottom: 0;box-shadow: 0 1px 3px rgba(198,198,198,0.5);-webkit-box-shadow: 0 1px 3px rgba(198,198,198,0.5);-moz-box-shadow: 0 1px 3px rgba(198,198,198,0.5);height:978px;overflow-y:auto}
-.w-title{font-size: 60px;text-align: center;padding-top: 50px}.w-wrap p{margin-top:20px}
+body{background-attachment: fixed;background-repeat: no-repeat;background-image: url(../images/login-blurry-bg.jpg);}
+.w-wrap{height:978px;overflow-y:auto}
+.w-title{font-size: 60px;text-align: center;padding-top: 50px;color:#fff;text-shadow:3px 3px 10px #000;margin-bottom: 20px;font-family: "楷体"}
+.w-wrap p{margin-top:20px}
 .w-input{padding: 9px 8px;width: 464px;height: 24px;line-height: 24px;font-size: 16px;border: 1px solid #448ef3}
 .w-input-btn{padding: 0px 20px;cursor: pointer}
 .inp-metro{padding:9px 8px;width:464px;height:24px;line-height:24px;font-size:16px;border:1px solid #448ef3}
@@ -16,7 +17,7 @@
 .input-tips li.tips_bottom{padding:2px 5px;text-align:right;color:#b4b4b4}
 /*查询结果*/
 .result-con{display:none;width:610px;margin:0 auto;margin-top:10px;border:1px solid #90bfff}
-.result-top{width:608px;height:43px;background-color:#fbfbfb;border-bottom:none}
+.result-top{width:100%;height:43px;background-color:#fbfbfb;border-bottom:none}
 .result-top span,.result-top a{display:inline-block;height:43px;line-height:43px;vertical-align:middle;font-size:14px}
 .result-top .col1{width:184px;text-align:center;font-weight:bold;border-right:1px solid #ddd;color:#333}
 .result-top .col2{width:303px;text-align:center;font-weight:bold;color:#333}

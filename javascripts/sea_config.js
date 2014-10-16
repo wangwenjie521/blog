@@ -4,8 +4,7 @@ seajs.config({
 		'jquery' : 'jquery',
 		'gotop':'jquery.gotop',
 		'company':'company',
-		'isotope':'jquery.isotope.min',
-		'isotope_extras':'isotope_extras',
+		'dialog':'dialog',
 		'modernizr':'modernizr.custom'
 	},
 	map: [

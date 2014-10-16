@@ -1,6 +1,6 @@
 define(function(require, exports, module) {
 	require('dialog');
-	require.async('gotop');
+	//require.async('gotop');
 	var a=$("#kdTName"),b=$("#kdName"),c=$("#kdNum"),d=$("#kdSubBtn"),e=$("#queryResult"),f=$("#queryContext"),g=$("#mask-body .column-list a"),
 		msg_a="提示：请您选择快递名称",
 		msg_b="提示：请您填写快递单号",
