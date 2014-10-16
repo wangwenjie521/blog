@@ -1,70 +1,39 @@
 define(function(require, exports, module) {
+	require('dialog');
 	require.async('gotop');
-	var win_hei,w_warp=$("#w-warp"),w_warp_hei,w_mask=$("#w-mask"),w_mask_body=$("#w-mask-body");
-	var mask={
-		winHei:function(val){
-			win_hei=$(window).height();
-			w_warp_hei=w_warp.height();
-			// win_hei>w_warp_hei?w_warp_hei=win_hei:w_warp_hei;
-			val==1?w_warp.height(win_hei):w_warp.height(w_warp_hei);
-		},
-		openMask:function(){
-			mask.winHei(1);
-			w_warp.height(win_hei);
-			w_mask.css({"height":win_hei}).show();
-			w_mask_body.css({"height":win_hei,"marginTop":-win_hei/2}).fadeIn();
-		},closeMask:function(){
-			mask.winHei(2);
-			w_mask_body.hide();
-			w_mask.fadeOut();
-			$('html, body').animate({scrollTop: 0},0);
-		}
-	}
-	mask.winHei(1);
-	$(window).resize=function(){
-		mask.winHei(1);
-	}
-	$("#kdTName").bind("focus",function(){
-		mask.openMask();
+	var a=$("#kdTName"),b=$("#kdName"),c=$("#kdNum"),d=$("#kdSubBtn"),e=$("#queryResult"),f=$("#queryContext"),g=$("#w-mask-body .column-list a"),
+		msg_a="提示：请您选择快递名称",
+		msg_b="提示：请您填写快递单号",
+		msg_err="查询失败，请检查快递名称和单号是否正确，请重试";
+	a.bind("focus",function(){
+		dialog.open();
 	});
-	$("#w-mask").bind("click",function(){
-		mask.closeMask();
-	});
-	$("#w-mask-close").bind("click",function(){
-		mask.closeMask();
-	});
-	$("#w-mask-body .column-list a").each(function(){
+	g.each(function(){
 		$(this).bind("click",function(){
-			var val=$(this).text(),code;
+			var val=$(this).text();
 			var flag=$(this).attr("flag");
-			$("#kdTName").val(val);
-			$("#kdName").val(flag);
-			$("#queryContext").hide();
-			mask.closeMask();
+			a.val(val);
+			b.val(flag);
+			f.hide();
+			dialog.close();
 		});
 	});
-	$("#kdSubBtn").bind("click",function(){
-		var kdName=$("#kdName").val();
-		if(kdName==""||kdName==null){alert("提示：请您选择快递名称");return;}
-		var kdNum=$("#kdNum").val();
-		if(kdNum==""||kdNum==null){alert("提示：请您填写快递单号");return;}
+	d.bind("click",function(){
+		var b_val=b.val();
+		if(b_val==""||b_val==null){alert(msg_a);return;}
+		var c_val=c.val();
+		if(c_val==""||c_val==null){alert(msg_b);return;}
 		$(this).addClass("btn-query-dis");
-		$.getJSON("http://www.kuaidi100.com/query?type="+kdName+"&postid="+kdNum+"&id=&valicode=&temp=&callback=?",function(data){
+		var json_link="http://www.kuaidi100.com/query?type="+b_val+"&postid="+c_val+"&id=&valicode=&temp=&callback=?";
+		$.getJSON(json_link,function(data){
 			if(data!=null){
-				$("#kdSubBtn").removeClass("btn-query-dis");
+				d.removeClass("btn-query-dis");
 				if(data.message!="ok"){
-					alert("查询失败，请检查快递名称和单号是否正确，请重试");return;
+					alert(msg_err);return;
 				}else{
-					var dataLists=data.data,len=dataLists.length,temp_len=len-1,temp_state="",temp_last="";
-					if(len>0){
-						$("#queryResult").empty();
-						$("#queryContext").show();
-					}
+					var dataLists=data.data,len=dataLists.length,temp_len=len-1,temp_state="",temp_last="",temp_val;
+					if(len>0){e.empty();f.show();}
 					for(var i=0;i<len;i++){
-						// if(i==0){data.state=="3"?(temp_last="last",temp_state="status-check"):(temp_last="",temp_state="status-first");}
-						// else{temp_last="",temp_state=""}
-						// var temp_tr='<tr class="'+temp_last+'"><td class="row1">'+dataLists[i].time+'</td>'+
-						// 	'<td class="status '+temp_state+'">&nbsp;</td><td>'+dataLists[i].context+'</td></tr>';
 						if(i==0){temp_state="status-first"}
 						else if(i==len-1){
 							temp_last="last";
@@ -72,15 +41,14 @@ define(function(require, exports, module) {
 						}else{
 							temp_state="";
 						}
-						var temp_val=len-1-i;
+						temp_val=temp_len-i;
 						var temp_tr='<tr class="'+temp_last+'"><td class="row1">'+dataLists[temp_val].time+'</td>'+
 							'<td class="status '+temp_state+'">&nbsp;</td><td>'+dataLists[temp_val].context+'</td></tr>';
-						$("#queryResult").append(temp_tr);
+						e.append(temp_tr);
 						$("#queryResult tr:eq("+i+")").delay(100).fadeIn();
 					}
 				}
 			}
 		});
 	});
-	
 });
