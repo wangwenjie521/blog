@@ -4,7 +4,7 @@ body{background-attachment: fixed;background-repeat: no-repeat;background-image:
 .w-wrap{height:978px;overflow-y:auto}
 .w-title{font-size: 60px;text-align: center;padding-top: 50px;color:#fff;text-shadow:3px 3px 10px #000;margin-bottom: 20px;font-family: "楷体"}
 .w-wrap p{margin-top:20px}
-.w-input{padding: 9px 8px;width: 464px;height: 24px;line-height: 24px;font-size: 16px;border: 1px solid #448ef3}
+.w-input{padding: 9px 8px;width: 464px;height: 24px;line-height: 24px;font-size: 16px;border:0}
 .w-input-btn{padding: 0px 20px;cursor: pointer}
 .inp-metro{padding:9px 8px;width:464px;height:24px;line-height:24px;font-size:16px;border:1px solid #448ef3}
 .btn-query{display:inline-block;padding:0;margin-top:-5px;width:128px;height:44px;line-height:44px;overflow:hidden;vertical-align:middle;font-size:18px;text-indent:20px;color:#fff;cursor:pointer;border:none;background:url("http://cdn.kuaidi100.com/images/ico_index.png") 8px -551px no-repeat #448ef3}
