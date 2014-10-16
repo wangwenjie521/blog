@@ -1,7 +1,7 @@
 define(function(require, exports, module) {
 	require('dialog');
 	require.async('gotop');
-	var a=$("#kdTName"),b=$("#kdName"),c=$("#kdNum"),d=$("#kdSubBtn"),e=$("#queryResult"),f=$("#queryContext"),g=$("#w-mask-body .column-list a"),
+	var a=$("#kdTName"),b=$("#kdName"),c=$("#kdNum"),d=$("#kdSubBtn"),e=$("#queryResult"),f=$("#queryContext"),g=$("#mask-body .column-list a"),
 		msg_a="提示：请您选择快递名称",
 		msg_b="提示：请您填写快递单号",
 		msg_err="查询失败，请检查快递名称和单号是否正确，请重试";
@@ -12,6 +12,7 @@ define(function(require, exports, module) {
 		$(this).bind("click",function(){
 			var val=$(this).text();
 			var flag=$(this).attr("flag");
+			if(b.val()!=flag){c.val("").focus()}
 			a.val(val);
 			b.val(flag);
 			f.hide();
@@ -23,11 +24,11 @@ define(function(require, exports, module) {
 		if(b_val==""||b_val==null){alert(msg_a);return;}
 		var c_val=c.val();
 		if(c_val==""||c_val==null){alert(msg_b);return;}
-		$(this).addClass("btn-query-dis");
+		$(this).addClass("btn-query-dis").html("查询ing");
 		var json_link="http://www.kuaidi100.com/query?type="+b_val+"&postid="+c_val+"&id=&valicode=&temp=&callback=?";
 		$.getJSON(json_link,function(data){
 			if(data!=null){
-				d.removeClass("btn-query-dis");
+				d.removeClass("btn-query-dis").html("查询");
 				if(data.message!="ok"){
 					alert(msg_err);return;
 				}else{
