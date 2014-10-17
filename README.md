@@ -4,7 +4,7 @@
 
 目前职位：  前端开发工程师  (Front-End Developer)
 
-[在线预览](http://wangwenjie1314.github.io/blog/)
+[http://wangwenjie1314.github.io/blog/](http://wangwenjie1314.github.io/blog/)
 
 爱吃、爱旅行、爱阅读的理想青年，前端开发攻城师。weibo：[Android_Wong](http://weibo.com/wangwenjie1314 "王文杰的微博")
 
