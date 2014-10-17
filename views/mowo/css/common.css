@@ -3,8 +3,9 @@
 .mw-minwidth{min-width:1000px}.mw-width{width: 1000px;margin: 0 auto}
 .hide-text{text-indent:-99999em;white-space:nowrap;overflow:hidden}
 /*header*/
-.mw-header{position:fixed;width:100%;height:80px;background:#feb9ed;top:-80px;left:0;z-index:99999999}
+.mw-header{position:fixed;width:100%;height:80px;background-color:#feb9ed;top:-80px;left:0;z-index:99999999}
 .mw-header-s{top:0}
+.mw-header.mask{background-color: #fff;box-shadow: 0 0 5px #888;-webkit-box-shadow: 0 0 5px #888;-moz-box-shadow: 0 0 5px #888}
 .mw-header-wrap{position:relative;height:80px}
 .mw-header-wrap-mr{margin:0 65px}
 .mw-logo-wrap{position:absolute;left:0;top:15px}

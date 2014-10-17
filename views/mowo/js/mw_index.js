@@ -1,5 +1,5 @@
 /*mw首页 js update by wwj 2014-09-26 09:19:05*/
-var band_hei,sk_1_hei,sk_2_hei,sk_3_hei,sk_4_hei;
+var band_hei;
 $(function(){
     var box_speeds=[2000,900,1300,1000];
     var animateBlock={
@@ -69,14 +69,10 @@ $(function(){
         for(name in animations){
             animations[name](winHeight,scrollTop);
         }
-        if((scrollTop>sk_1_hei) && (scrollTop<=sk_2_hei)){
-            $("#mw-header").css("background","#a0c8fd");
-        }else if(scrollTop>sk_2_hei && scrollTop<=sk_3_hei){
-            $("#mw-header").css("background","#fbd7a5");
-        }else if(scrollTop>sk_3_hei && scrollTop<=sk_4_hei){
-            $("#mw-header").css("background","#85cbc7");
+        if(scrollTop>band_hei){
+            $("#mw-header").addClass("mask").css("opacity",".7");
         }else{
-            $("#mw-header").css("background","#feb9ed");
+            $("#mw-header").removeClass("mask").css("opacity","1");
         }
     });
     if($(window).height()>100){
@@ -86,9 +82,5 @@ $(function(){
 function init_hei(){
     var temp_band_hei=$(window).height();
     $("#mw-banner").height(temp_band_hei);
-    band_hei=temp_band_hei-80;
-    sk_1_hei=band_hei+720;
-    sk_2_hei=sk_1_hei+720;
-    sk_3_hei=sk_2_hei+720;
-    sk_4_hei=sk_3_hei+720;
+    band_hei=temp_band_hei-150;
 }
