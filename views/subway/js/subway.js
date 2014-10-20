@@ -26,7 +26,7 @@ $(function(){
 	});
 	$destinationLine.change(function(){
 		$destination.empty();
-		var link="json/"+$destination.val()+".json";
+		var link="json/"+$destinationLine.val()+".json";
 		getSubWayJson(link,1);
 	});
 	function getSubWayJson(link,val){
